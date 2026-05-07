@@ -1,26 +1,52 @@
-function buy(item) {
-  document.getElementById("product").value = item;
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-document.getElementById("orderForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  alert("Order sent!");
-});
-function addOrder() {
-  let customer = document.getElementById("customer").value;
-  let item = document.getElementById("item").value;
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
 
-  if (!customer || !item) return;
+h1 {
+  text-align: center;
+}
 
-  let div = document.createElement("div");
-  div.className = "order";
+.form {
+  display: flex;
+  flex-direction: column;
+}
 
-  div.innerHTML = `
-    <p><b>Customer:</b> ${customer}</p>
-    <p><b>Item:</b> ${item}</p>
+.form input {
+  padding: 12px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
 
-    <label>
-      <input type="checkbox" onchange="toggleDone(this)">
-      Completed
-    </label>
-  `;
+button {
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: green;
+  color: white;
+  font-size: 16px;
+}
+
+.order {
+  background: #222;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
