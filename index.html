@@ -1,48 +1,35 @@
-<header>
-  <h1>Xander Resells</h1>
-  <p>Clothing • Accesories • Electronics</p>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracker</title>
 
-<div class="card">
-  <h2>Clothing</h2>
-  <p>$120</p>
-  <button onclick="buy('PS Vita')">Buy</button>
-</div>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div class="card">
-  <h2>Other</h2>
-  <p>$40</p>
-  <button onclick="buy('Controller')">Buy</button>
-</div>
+  <div class="container">
 
-<form id="orderForm">
-  <h2>Place Order</h2>
-  <input id="name" placeholder="Name" required>
-  <input id="product" placeholder="Product">
-  <textarea placeholder="Address"></textarea>
-  <button type="submit">Submit</button>
-</form>
+    <h1>Order Tracker</h1>
 
-<div class="container">
-  <h1>Order Tracker</h1>
+    <div class="form">
 
-  <div class="form">
-    <input id="customer" placeholder="Customer Name">
-    <input id="item" placeholder="What they are buying">
-    <button onclick="addOrder()">Add Order</button>
+      <input id="customer" type="text" placeholder="Customer Name">
+
+      <input id="item" type="text" placeholder="What they are buying">
+
+      <input id="price" type="number" placeholder="Price ($)">
+
+      <button onclick="addOrder()">Add Order</button>
+
+    </div>
+
+    <div id="orders"></div>
+
   </div>
 
-  <div id="orders"></div>
-</div>
-<div class="container">
-  <h1>Order Tracker</h1>
+  <script src="script.js"></script>
 
-  <div class="form">
-    <input id="customer" placeholder="Customer Name">
-    <input id="item" placeholder="What they are buying">
-    <input id="price" placeholder="Price ($)">
-    <button onclick="addOrder()">Add Order</button>
-  </div>
-
-  <div id="orders"></div>
-</div>
+</body>
+</html>
