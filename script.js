@@ -1,15 +1,15 @@
 function addOrder() {
 
-  let customer = document.getElementById("customer").value;
-  let item = document.getElementById("item").value;
-  let price = document.getElementById("price").value;
+  const customer = document.getElementById("customer").value;
 
-  if (customer === "" || item === "" || price === "") {
+  const item = document.getElementById("item").value;
+
+  if (customer === "" || item === "") {
     alert("Fill out all fields");
     return;
   }
 
-  let order = document.createElement("div");
+  const order = document.createElement("div");
 
   order.classList.add("order");
 
@@ -18,10 +18,8 @@ function addOrder() {
 
     <p><strong>Item:</strong> ${item}</p>
 
-    <p><strong>Price:</strong> $${price}</p>
-
     <label>
-      <input type="checkbox" onchange="toggleComplete(this)">
+      <input type="checkbox" onchange="toggleOrder(this)">
       Completed
     </label>
   `;
@@ -29,15 +27,15 @@ function addOrder() {
   document.getElementById("orders").appendChild(order);
 
   document.getElementById("customer").value = "";
+
   document.getElementById("item").value = "";
-  document.getElementById("price").value = "";
 }
 
-function toggleComplete(checkbox) {
+function toggleOrder(box) {
 
-  let order = checkbox.parentElement.parentElement;
+  const order = box.parentElement.parentElement;
 
-  if (checkbox.checked) {
+  if (box.checked) {
     order.classList.add("completed");
   } else {
     order.classList.remove("completed");
