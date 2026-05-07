@@ -1,52 +1,45 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: #111;
-  color: white;
-  font-family: Arial, sans-serif;
+function addOrder() {
+
+  let customer = document.getElementById("customer").value;
+  let item = document.getElementById("item").value;
+  let price = document.getElementById("price").value;
+
+  if (customer === "" || item === "" || price === "") {
+    alert("Fill out all fields");
+    return;
+  }
+
+  let order = document.createElement("div");
+
+  order.classList.add("order");
+
+  order.innerHTML = `
+    <p><strong>Customer:</strong> ${customer}</p>
+
+    <p><strong>Item:</strong> ${item}</p>
+
+    <p><strong>Price:</strong> $${price}</p>
+
+    <label>
+      <input type="checkbox" onchange="toggleComplete(this)">
+      Completed
+    </label>
+  `;
+
+  document.getElementById("orders").appendChild(order);
+
+  document.getElementById("customer").value = "";
+  document.getElementById("item").value = "";
+  document.getElementById("price").value = "";
 }
 
-.container {
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
-}
+function toggleComplete(checkbox) {
 
-h1 {
-  text-align: center;
-}
+  let order = checkbox.parentElement.parentElement;
 
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form input {
-  padding: 12px;
-  margin: 6px 0;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-button {
-  padding: 12px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 8px;
-  background: green;
-  color: white;
-  font-size: 16px;
-}
-
-.order {
-  background: #222;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 10px;
-}
-
-.completed {
-  text-decoration: line-through;
-  opacity: 0.6;
+  if (checkbox.checked) {
+    order.classList.add("completed");
+  } else {
+    order.classList.remove("completed");
+  }
 }
